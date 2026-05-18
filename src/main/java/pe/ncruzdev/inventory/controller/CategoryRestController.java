@@ -1,5 +1,6 @@
 package pe.ncruzdev.inventory.controller;
 
+import jakarta.websocket.server.PathParam;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -46,6 +47,18 @@ public class CategoryRestController {
     public ResponseEntity<CategoryResponseRest> save(@RequestBody Category category){
 
         ResponseEntity<CategoryResponseRest> response = service.save(category);
+        return response;
+    }
+
+    /**
+     * update categories
+     * @param category
+     * @return
+     */
+    @PutMapping("/categories/{id}")
+    public ResponseEntity<CategoryResponseRest> update(@RequestBody Category category, @PathVariable Long id){
+
+        ResponseEntity<CategoryResponseRest> response = service.update(category, id);
         return response;
     }
 
