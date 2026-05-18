@@ -8,6 +8,7 @@ import pe.ncruzdev.inventory.model.Category;
 import pe.ncruzdev.inventory.response.CategoryResponseRest;
 import pe.ncruzdev.inventory.services.ICategoryService;
 
+@CrossOrigin(origins = {"http://localhost:4200"})
 @RestController
 @RequestMapping("/api/v1")
 @AllArgsConstructor
