@@ -2,10 +2,8 @@ package pe.ncruzdev.inventory.controller;
 
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import pe.ncruzdev.inventory.model.Category;
 import pe.ncruzdev.inventory.response.CategoryResponseRest;
 import pe.ncruzdev.inventory.services.ICategoryService;
 
@@ -36,6 +34,18 @@ public class CategoryRestController {
     public ResponseEntity<CategoryResponseRest> searchCategoriesById(@PathVariable Long id){
 
         ResponseEntity<CategoryResponseRest> response = service.searchById(id);
+        return response;
+    }
+
+    /**
+     * save categories
+     * @param category
+     * @return
+     */
+    @PostMapping("/categories")
+    public ResponseEntity<CategoryResponseRest> save(@RequestBody Category category){
+
+        ResponseEntity<CategoryResponseRest> response = service.save(category);
         return response;
     }
 
